@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>John Aris | Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h5 {
+      font-family: 'Orbitron', sans-serif;
+    }
+    .navbar {
+      background-color: #010409 !important;
+      border-bottom: 1px solid #00ffff33;
+    }
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #0f2027, #000000);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Particle canvas */
+    #particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .glow {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    .section {
+      padding: 80px 0;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #00ffff22;
+      color: #c9d1d9;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 0 20px #00ffff55;
+    }
+    .badge-tech {
+      background: #00ffff22;
+      color: #00ffff;
+      margin: 5px;
+      padding: 8px 12px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+    footer {
+      background: #010409;
+      border-top: 1px solid #00ffff33;
+      text-align: center;
+      padding: 20px;
+    }
+    .typing {
+      border-right: 2px solid #00ffff;
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+    }
+    
+    
+    @keyframes float {
+      0% { transform: translate3d(0, 0, 0); }
+      50% { transform: translate3d(0, -6px, 0); }
+      100% { transform: translate3d(0, 0, 0); }
+    }
+
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px #00ffff; }
+      50% { text-shadow: 0 0 25px #00ffff, 0 0 40px #00ffff; }
+      100% { text-shadow: 0 0 10px #00ffff; }
+    }
+
+    .hero .hero-content {
+      animation: float 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      will-change: transform;
+    }
+
+    .hero h1 {
+      animation: glowPulse 2s infinite;
+    }
+
+    /* Fix carousel image sizing */
+    #aboutCarousel img {
+      height: 250px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand glow" href="#">&lt;Portfolio/&gt;</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Stack</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#seminars">Seminars</a></li>
+        <li class="nav-item"><a class="nav-link" href="#organizations">Organizations</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <canvas id="particles"></canvas>
+  <div class="hero-content">
+    <h1 class="glow">John Aris Dela Cruz</h1>
+    <h3>Aspiring Cyber Security Analyst</h3>
+    <p class="glow">Securing systems, defending data, and stopping threats.</p>
+    <p class="typing" id="typing"></p>
+  </div>
+</section>
+
+<section id="about" class="section container">
+  <div class="row align-items-center">
+    
+    <!-- Profile Slideshow -->
+    <div class="col-md-4 text-center mb-4">
+      <div id="aboutCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+        <div class="carousel-inner" style="max-width:250px;margin:auto;border:3px solid #00ffff;border-radius:50%;box-shadow:0 0 20px #00ffff55;overflow:hidden;">
+          <div class="carousel-item active">
+            <img src="./images/juswa g (2).jpg" class="d-block w-100" alt="Photo 1">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/mey2 (1).jpg" class="d-block w-100" alt="Photo 2">
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- About Text -->
+    <div class="col-md-8">
+      <h2 class="glow">About Me</h2>
+      <p>
+        Hi, I am <strong>John Aris Dela Cruz</strong>, an aspiring <strong>Cyber Security Analyst</strong>. I am currently a student at <strong>STI Colleges Malolos</strong> taking up <strong>Bachelor of Science in Information Technology (BSIT)</strong>. I am passionate about protecting systems, analyzing security threats, and building secure applications. I continuously strive to learn and improve my skills in cybersecurity and modern technologies.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="glow text-center">Tech Stack</h2>
+    <div class="row text-center mt-4">
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card p-3">
+          <i class="fab fa-html5 fa-2x glow mb-2"></i>
+          <h6>HTML</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card p-3">
+          <i class="fab fa-css3-alt fa-2x glow mb-2"></i>
+          <h6>CSS</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card p-3">
+          <i class="fab fa-js fa-2x glow mb-2"></i>
+          <h6>JavaScript</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card p-3">
+          <i class="fab fa-java fa-2x glow mb-2"></i>
+          <h6>Java</h6>
+        </div>
+      </div>
+
+      <div class="col-md-3 col-6 mb-3">
+        <div class="card p-3">
+          <i class="fas fa-database fa-2x glow mb-2"></i>
+          <h6>MySQL</h6>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section container">
+  <h2 class="glow">Projects</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h5>On-Care: Doctor Appointment System</h5>
+        <p>A web-based system that allows patients to schedule appointments, manage bookings, and streamline communication with healthcare providers.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card p-3">
+        <h5>Yaku Motorcycle Parts POS System</h5>
+        <p>A point-of-sale system designed to manage inventory, sales transactions, and reporting for motorcycle parts businesses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="seminars" class="section container">
+  <h2 class="glow text-center">Seminars & Certifications</h2>
+  <div class="row mt-4">
+
+    <div class="col-md-4 mb-3">
+      <div class="card p-3">
+        <h5>Freshman Orientation with Syntax Organization</h5>
+        <p>Freshman orientation at STI Malolos College with the BSIT Syntax Org, formally introducing new students and fostering community engagement.</p>
+        <small>2023 • 200+ Participants</small>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card p-3">
+        <h5>SYNTAX Endgame — The Second IT Congress</h5>
+        <p>Six of the biggest IT communities in the Philippines gathered to discuss the gaming industry in IT and leadership.</p>
+        <small>April 2024 • 400+ Participants</small>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card p-3">
+        <h5>Bridging Knowledge: Exploring Digital Divide, Cybersecurity and OS Trends, Professionalism in the IT Industry, and Programming</h5>
+        <p>Explored digital divide, cybersecurity trends, professionalism, and programming in the IT industry.</p>
+        <small>December 2024 • 200+ Participants</small>
+      </div>
+    </div>
+
+      <div class="col-md-4 mb-3">
+      <div class="card p-3">
+        <h5>Course Completion in System Administration</h5>
+        <p>Completed a course in system administration focusing on managing computer systems, networks, security, and troubleshooting.</p>
+        <a href="https://elms.sti.edu/print_certificate/pdf?user_award=11218226" target="_blank" style="color:#00ffff;">View Certificate</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="organizations" class="section container">
+  <h2 class="glow text-center">Organizations</h2>
+  <div class="row mt-4">
+
+    <div class="col-md-4 mb-3">
+      <div class="card p-3 text-center">
+        <i class="fas fa-users fa-2x glow mb-2"></i>
+        <h5>SYNTAX</h5>
+        <p>Society of Youth for the Next Technological Advancement and Excellence</p>
+        <small>Member • 2022 - 2023</small>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card p-3 text-center">
+        <i class="fas fa-gamepad fa-2x glow mb-2"></i>
+        <h5>FRX Esports</h5>
+        <p>Competitive and community-driven esports organization.</p>
+        <small>Member • 2024 - 2025</small>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card p-3 text-center">
+        <i class="fas fa-fire fa-2x glow mb-2"></i>
+        <h5>Blaze Org</h5>
+        <p>Organization focused on growth, leadership, and innovation.</p>
+        <small>Member • 2026 - Present</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="container">
+    <h2 class="glow text-center">Contact</h2>
+    <div class="row text-center mt-4">
+
+      <div class="col-md-4 mb-3">
+        <a href="mailto:arisuu.dcruz@gmail.com" class="text-decoration-none">
+          <div class="card p-3">
+            <i class="fas fa-envelope fa-2x mb-2 glow"></i>
+            <h6>Email</h6>
+            <p>arisuu.dcruz@gmail.com</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <a href="tel:+639321317130" class="text-decoration-none">
+          <div class="card p-3">
+            <i class="fas fa-phone fa-2x mb-2 glow"></i>
+            <h6>Phone</h6>
+            <p>+63 932 131 7130</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <a href="https://www.linkedin.com/in/arisuudcruz03/" target="_blank" class="text-decoration-none">
+          <div class="card p-3">
+            <i class="fab fa-linkedin fa-2x mb-2 glow"></i>
+            <h6>LinkedIn</h6>
+            <p>View Profile</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <a href="https://www.facebook.com/johnaris.delacruz.1/" target="_blank" class="text-decoration-none">
+          <div class="card p-3">
+            <i class="fab fa-facebook fa-2x mb-2 glow"></i>
+            <h6>Facebook</h6>
+            <p>John Aris Dela Cruz</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <a href="https://github.com/arisudcruz" target="_blank" class="text-decoration-none">
+          <div class="card p-3">
+            <i class="fab fa-github fa-2x mb-2 glow"></i>
+            <h6>GitHub</h6>
+            <p>View Repositories</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 John Aris Dela Cruz | Built with 💻</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  // Typing animation (fixed)
+  const phrases = [
+    "Ethical Hacker in Training...",
+    "Defending Networks. One Packet at a Time.",
+    "BSIT Student @ STI Malolos",
+    "Building Secure Systems.",
+    "Always Learning. Always Improving."
+  ];
+
+  let i = 0, j = 0, current = "", isDeleting = false;
+  const typingEl = document.getElementById("typing");
+
+  function typeEffect() {
+    current = phrases[i];
+
+    if (isDeleting) {
+      typingEl.textContent = current.substring(0, j--);
+      if (j < 0) {
+        isDeleting = false;
+        i = (i + 1) % phrases.length;
+      }
+    } else {
+      typingEl.textContent = current.substring(0, j++);
+      if (j > current.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 1200);
+        return;
+      }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 40 : 80);
+  }
+
+  typeEffect();
+</script>
+
+<script>
+// Simple particle animation
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2,
+    dx: (Math.random() - 0.5) * 1,
+    dy: (Math.random() - 0.5) * 1
+  });
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "#00ffff";
+
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+  });
+
+  requestAnimationFrame(drawParticles);
+}
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+drawParticles();
+</script>
+
+</body>
+</html>
